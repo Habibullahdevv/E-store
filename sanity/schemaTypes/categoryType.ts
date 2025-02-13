@@ -1,4 +1,5 @@
 import {TagIcon} from '@sanity/icons'
+import { Subtitles } from 'lucide-react'
 import {defineField, defineType} from 'sanity'
 
 export const categoryType = defineType({
@@ -23,4 +24,9 @@ export const categoryType = defineType({
       type: 'text',
     }),
   ],
+  preview: 
+  {select:
+    {title:"title",
+    Subtitle:"description",
+  }}
 })
