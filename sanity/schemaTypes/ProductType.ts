@@ -9,10 +9,20 @@ export const ProductType = defineType({
     fields: [
         defineField({
             name: "name",
-            title: "Product name",
+            title: "Product Name",
             type: "string",
             validation: (Rule) => Rule.required(),
         }),
+        defineField({
+            name: 'slug',
+            title:"Slug",
+            type: 'slug',
+            options: {
+              source: 'name',
+              maxLength:96,
+            },
+            validation: Rule => Rule.required(),
+          }),
         defineField({
             name: "Image",
             title: "Product Image",

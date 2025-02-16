@@ -120,6 +120,7 @@ export type Product = {
   _updatedAt: string;
   _rev: string;
   name?: string;
+  slug?: Slug;
   Image?: {
     asset?: {
       _ref: string;
@@ -293,7 +294,7 @@ export type ALL_CATEGORIES_QUERYResult = Array<{
   description?: string;
 }>;
 
-// Source: ./sanity/lib/products/getAllProducts.ts
+// Source: ./sanity/lib/products/getAllProducts.tsx
 // Variable: All_PRODUCTS_QUERY
 // Query: *[_type == "Product"] | order( name asc)
 export type All_PRODUCTS_QUERYResult = Array<{
@@ -303,6 +304,7 @@ export type All_PRODUCTS_QUERYResult = Array<{
   _updatedAt: string;
   _rev: string;
   name?: string;
+  slug?: Slug;
   Image?: {
     asset?: {
       _ref: string;

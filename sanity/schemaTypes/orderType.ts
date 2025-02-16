@@ -114,7 +114,7 @@ export const orderType = defineType({
         }),
         defineField({
             name: "currency",
-            title: "currency",
+            title: "Currency",
             type: "string"
         }),
         defineField({

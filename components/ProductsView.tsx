@@ -8,7 +8,7 @@ interface ProductsViewProps{
     categories : Category[];
 } 
 
-const ProductsView = ({products, categories}: ProductsViewProps ) => {
+const ProductsView = ({products}: ProductsViewProps ) => {
   return (
     <div className='flex flex-col'>
       {/* Categories */}

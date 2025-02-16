@@ -12,12 +12,12 @@
   "dependencies": {
     "@clerk/nextjs": "^6.11.2",
     "@radix-ui/react-slot": "^1.1.2",
+    "@sanity/client": "^6.28.0",
     "@sanity/icons": "^3.5.7",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.74.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.4.3",
     "lucide-react": "^0.475.0",
     "next": "15.1.7",
     "next-sanity": "^9.8.55",
