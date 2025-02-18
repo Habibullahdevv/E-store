@@ -280,6 +280,24 @@ export type SanityImageMetadata = {
 
 export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Sale | Order | Product | Category | Slug | BlockContent | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
+// Source: ./sanity/lib/Sales/BlackFridayBanner.ts
+// Variable: ACTIVE_SALE_BYCOUPON_QUERY
+// Query: *[_type == "sale" && isActive == true && couponCode == $couponCode] | order(validFrom desc) [0 ]
+export type ACTIVE_SALE_BYCOUPON_QUERYResult = {
+  _id: string;
+  _type: "sale";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  description?: string;
+  discountAmount?: number;
+  couponCode?: string;
+  validUntil?: string;
+  validFrom?: string;
+  isActive?: boolean;
+} | null;
+
 // Source: ./sanity/lib/products/getAllCategories.tsx
 // Variable: ALL_CATEGORIES_QUERY
 // Query: *[_type == "category"] | order( name asc)
@@ -361,6 +379,7 @@ export type All_PRODUCTS_QUERYResult = Array<{
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
+    "*[_type == \"sale\" && isActive == true && couponCode == $couponCode] | order(validFrom desc) [0 ]": ACTIVE_SALE_BYCOUPON_QUERYResult;
     " *[_type == \"category\"] | order( name asc) ": ALL_CATEGORIES_QUERYResult;
     "\n           *[_type == \"Product\"] | order( name asc)\n\n            ": All_PRODUCTS_QUERYResult;
   }

@@ -68,7 +68,7 @@ preview:{
     prepare(selection){
         const {title, discountAmount, couponCode, isActive} = selection;
         const status = isActive ? "Active" : "Inactive";
-        return{
+        return{title, isActive,
             subtitle:`${discountAmount}& off - code: ${couponCode} - ${status}`,
         }
     }
