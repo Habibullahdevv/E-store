@@ -375,6 +375,69 @@ export type All_PRODUCTS_QUERYResult = Array<{
   stock?: number;
 }>;
 
+// Source: ./sanity/lib/products/searchProductsByName.tsx
+// Variable: PRODUCT_SEARCHQUERY
+// Query: *[_type == "Product" && name match $searchParams] | order(name asc)
+export type PRODUCT_SEARCHQUERYResult = Array<{
+  _id: string;
+  _type: "Product";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  slug?: Slug;
+  Image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }>;
+  price?: number;
+  categories?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "category";
+  }>;
+  stock?: number;
+}>;
+
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
@@ -382,5 +445,6 @@ declare module "@sanity/client" {
     "*[_type == \"sale\" && isActive == true && couponCode == $couponCode] | order(validFrom desc) [0 ]": ACTIVE_SALE_BYCOUPON_QUERYResult;
     " *[_type == \"category\"] | order( name asc) ": ALL_CATEGORIES_QUERYResult;
     "\n           *[_type == \"Product\"] | order( name asc)\n\n            ": All_PRODUCTS_QUERYResult;
+    "*[_type == \"Product\" && name match $searchParams] | order(name asc)": PRODUCT_SEARCHQUERYResult;
   }
 }
