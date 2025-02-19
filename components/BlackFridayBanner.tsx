@@ -22,7 +22,7 @@ return null;
             <div className='flex'>
                 <div className='bg-white text-black px-6 py-4 rounded-full shadow-md transform hover:scale-105 transition duration-300'>
                     <span className='font-bold text-base sm:text-xl'>
-                        Use Code:  
+                        Use Code: {" "} 
                         <span className='text-red-600'>{sale.couponCode}</span>
                     </span>
                             <span className='ml-2 font-bold text-base sm:text-xl'></span>
